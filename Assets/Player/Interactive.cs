@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Interactive : MonoBehaviour
+public interface Interactive
 {
-    public virtual void Interact(GameObject interactor) { }
+    void Interact(GameObject interactor);
+    void Release(GameObject interactor);
 }

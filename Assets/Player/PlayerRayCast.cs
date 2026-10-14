@@ -7,34 +7,59 @@ public class PlayerRayCast : MonoBehaviour
     public Transform cam;
     public float rayLength;
 
+    private Interactive _currentInteractive;
+
     private void OnEnable()
     {
         interactAction.Enable();
-        interactAction.performed += OnInteract;
     }
 
     private void OnDisable()
     {
-        interactAction.performed -= OnInteract;
+        ReleaseCurrent();
         interactAction.Disable();
     }
 
-    private void OnInteract(InputAction.CallbackContext context)
+    private void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, rayLength))
+        if (!interactAction.IsPressed())
         {
-            if (hit.collider.TryGetComponent<Interactive>(out Interactive interactive))
-            {
-                interactive.Interact(gameObject);
-            }
+            ReleaseCurrent();
+            return;
         }
-        Debug.Log("Interact pressed");
+
+        Interactive interactive = null;
+
+        if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, rayLength))
+        {
+            hit.collider.TryGetComponent(out interactive);
+        }
+
+        if (ReferenceEquals(interactive, _currentInteractive))
+            return;
+
+        ReleaseCurrent();
+
+        if (interactive != null)
+        {
+            _currentInteractive = interactive;
+            _currentInteractive.Interact(gameObject);
+        }
+    }
+
+    private void ReleaseCurrent()
+    {
+        if (_currentInteractive == null)
+            return;
+
+        _currentInteractive.Release(gameObject);
+        _currentInteractive = null;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+
         if (cam != null)
             Gizmos.DrawLine(cam.position, cam.position + cam.forward * rayLength);
     }

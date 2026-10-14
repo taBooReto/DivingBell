@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class DiveController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody[] _divingBodies;
     [SerializeField] private float _divingSpeed = 0.25f;
+
+    [SerializeField] private DivingBellShake _shake;
+    [SerializeField] private Rigidbody[] _divingBodies;
     private bool _isDiving = false;
     private void FixedUpdate()
     {
@@ -18,5 +20,7 @@ public class DiveController : MonoBehaviour
     public void SetDiving(bool value)
     {
         _isDiving = value;
+
+        _shake.SetPlaying(value);
     }
 }
