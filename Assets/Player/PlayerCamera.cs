@@ -9,6 +9,9 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private CinemachineCamera _virtualCamera;
     [SerializeField] private float _mouseSensitivity = 7;
 
+    public Vector3 Position => _virtualCamera.transform.position;
+    public Quaternion Rotation => _virtualCamera.transform.rotation;
+
     public bool IsRotationLocked { get; private set; } = false;
     private Vector2 _rotation;
 
