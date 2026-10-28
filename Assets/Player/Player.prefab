@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1409164388476428265}
   m_Father: {fileID: 7443216272065330527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4003959240197955072
@@ -207,6 +208,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6175682738392824033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409164388476428265}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1409164388476428265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175682738392824033}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8961425961498654621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8206767019604572463
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +251,9 @@ GameObject:
   - component: {fileID: 3004883539238046512}
   - component: {fileID: 3507734565533929423}
   - component: {fileID: 1976580485002922860}
+  - component: {fileID: 8870636893997125544}
+  - component: {fileID: 3085934693889369217}
+  - component: {fileID: 2362429065435828745}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -393,3 +428,186 @@ MonoBehaviour:
     m_Flags: 0
   _virtualCamera: {fileID: 4003959240197955072}
   _mouseSensitivity: 5
+--- !u!114 &8870636893997125544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206767019604572463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e41ad8f10b236546b2e5d49b04b3f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  _switchAction:
+    m_Name: Switch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d6f0d6e9-77d1-4f89-bfd6-68975e3df1c3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 43070f25-51af-4a17-9e5f-31b32ca4a092
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 4
+    - m_Name: positive
+      m_Id: 1ddbf8f5-8939-4afa-9944-a16c4cbb96f1
+      m_Path: <Mouse>/scroll/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 8
+    - m_Name: negative
+      m_Id: 6ac1bd1b-c990-4627-99e6-ccacde054653
+      m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch
+      m_Flags: 8
+    m_Flags: 0
+  _dropAction:
+    m_Name: Drop
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 10b8f150-9bca-47a6-8c0b-aab5639703c2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a215e542-789e-483f-a47a-380e748f8ba6
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Drop
+      m_Flags: 0
+    m_Flags: 0
+  _slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  _frame: {fileID: 0}
+  _dropPoint: {fileID: 1409164388476428265}
+  _dropForce: 4
+--- !u!114 &3085934693889369217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206767019604572463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35413fb95ad6c245b94734d1c8e0e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRayCast
+  _interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b46096e9-f8c9-4de3-bf2b-4202284a8207
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 343bf144-6b4c-4140-ba01-5fed1d5e6ad7
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    m_Flags: 0
+  _camera: {fileID: 1976580485002922860}
+  _rayLength: 4
+--- !u!114 &2362429065435828745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206767019604572463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8e378ec93e2334bbd51635bb620ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSwim
+  _swimAction:
+    m_Name: Swim
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: abf85fd4-e6fe-484e-84b9-909a9c058b1f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 3D Vector
+      m_Id: 9206da60-b6e1-4f83-8f36-a102a6a161e0
+      m_Path: 3DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swim
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 34834ac1-c2af-46a0-be11-45a8e958810a
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swim
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 6bb15cf0-9924-4f35-8ad6-f597091926ba
+      m_Path: <Keyboard>/leftCtrl
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swim
+      m_Flags: 8
+    - m_Name: left
+      m_Id: e0ccd7ee-3c51-4105-9a64-004e6390d514
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swim
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 2577547b-303c-45c8-9af6-c4620e346742
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swim
+      m_Flags: 8
+    - m_Name: forward
+      m_Id: c87c26b2-6d68-4969-af55-2ef372b31386
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swim
+      m_Flags: 8
+    - m_Name: backward
+      m_Id: 33d62c3a-ecba-4656-a5ef-a222e5c8c34c
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swim
+      m_Flags: 8
+    m_Flags: 0
+  _waterSystems: {fileID: 0}
+  _playerCamera: {fileID: 8961425961498654621}
+  _playerWalk: {fileID: 3507734565533929423}
+  _rb: {fileID: 3004883539238046512}
+  speed: 7
+  acceleration: 4
+  waterDrag: 1.3
