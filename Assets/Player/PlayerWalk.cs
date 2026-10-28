@@ -75,11 +75,11 @@ public class PlayerWalk : MonoBehaviour
     {
         _canWalk = value;
 
-        if (!value)
-        {
-            _rb.linearVelocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero;
-        }
+        //if (!value)
+        //{
+        //    _rb.linearVelocity = Vector3.zero;
+        //    _rb.angularVelocity = Vector3.zero;
+        //}
     }
 
     public Vector2 GetWalkDir()
