@@ -293,7 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 264828271}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries: []
 --- !u!4 &91718062
 Transform:
   m_ObjectHideFlags: 19
@@ -401,13 +400,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157207112}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.533049, y: 0.46460605, z: 0.46460623, w: 0.5330489}
+  m_LocalRotation: {x: 0.7042225, y: -0.063803375, z: -0.06380337, w: 0.70422226}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 7.849, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 100.354004, y: 90, z: 90}
 --- !u!114 &157207115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2933,6 +2932,8 @@ MonoBehaviour:
   _playerWalk: {fileID: 1625676249}
   _rb: {fileID: 1625676247}
   speed: 2
+  acceleration: 3
+  waterDrag: 1.5
 --- !u!1 &1628636144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,7 +3071,7 @@ Transform:
   m_GameObject: {fileID: 1872146091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -193, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
