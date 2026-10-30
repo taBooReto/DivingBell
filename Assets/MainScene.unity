@@ -937,7 +937,7 @@ Transform:
   m_GameObject: {fileID: 197332564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12, y: 1.33, z: -25.81}
+  m_LocalPosition: {x: 2.12, y: -44.22, z: -25.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1635,8 +1635,8 @@ MonoBehaviour:
   tessellationFactorFadeStart: 150
   tessellationFactorFadeRange: 1850
   refractionColor: {r: 0.010022826, g: 0.21404114, b: 0.21404114, a: 1}
-  maxRefractionDistance: 0.6
-  absorptionDistance: 12.4
+  maxRefractionDistance: 3.5
+  absorptionDistance: 40
   scatteringColor: {r: 0, g: 0.13286833, b: 0.13286833, a: 1}
   ambientScattering: 0.2
   heightScattering: 0.2
@@ -2593,7 +2593,7 @@ Transform:
   m_GameObject: {fileID: 1625676245}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12, y: 0.48, z: -25.81}
+  m_LocalPosition: {x: 2.12, y: -45.07, z: -25.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3071,7 +3071,7 @@ Transform:
   m_GameObject: {fileID: 1872146091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -193, z: 0}
+  m_LocalPosition: {x: 0, y: -89.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
