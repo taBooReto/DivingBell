@@ -43,6 +43,16 @@ MonoBehaviour:
   includeSunInBaking:
     m_OverrideState: 0
     m_Value: 0
+  m_SkyVersion: 2
+  m_ObsoleteEarthPreset:
+    m_OverrideState: 0
+    m_Value: 1
+  planetaryRadius:
+    m_OverrideState: 0
+    m_Value: 6378100
+  planetCenterPosition:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: -6378100, z: 0}
   type:
     m_OverrideState: 0
     m_Value: 1
@@ -133,16 +143,6 @@ MonoBehaviour:
   horizonZenithShift:
     m_OverrideState: 0
     m_Value: 0
-  m_SkyVersion: 2
-  m_ObsoleteEarthPreset:
-    m_OverrideState: 0
-    m_Value: 1
-  planetaryRadius:
-    m_OverrideState: 0
-    m_Value: 6378100
-  planetCenterPosition:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: -6378100, z: 0}
 --- !u!114 &-4151792930034644520
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -234,6 +234,9 @@ MonoBehaviour:
   directionalLightsOnly:
     m_OverrideState: 0
     m_Value: 0
+  volumetricLightingDensityCutoff:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  m_Version: 1
   skyType:
     m_OverrideState: 1
     m_Value: 4
@@ -296,7 +300,6 @@ MonoBehaviour:
   fogType:
     m_OverrideState: 1
     m_Value: 0
-  m_Version: 1
 --- !u!114 &2680600662995200111
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -312,13 +315,13 @@ MonoBehaviour:
   active: 1
   colorLevels:
     m_OverrideState: 1
-    m_Value: 20.5
+    m_Value: 23.5
   intensity:
     m_OverrideState: 1
-    m_Value: 0.218
+    m_Value: 0.446
   pixelSize:
     m_OverrideState: 1
-    m_Value: 2.4
+    m_Value: 2.3
 --- !u!114 &7642060734654139733
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -483,6 +486,25 @@ MonoBehaviour:
   m_Name: VolumetricClouds
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.VolumetricClouds
   active: 0
+  m_Version: 3
+  localClouds:
+    m_OverrideState: 1
+    m_Value: 0
+  m_ObsoleteWindSpeed:
+    m_OverrideState: 1
+    m_Value: 1
+  m_ObsoleteOrientation:
+    m_OverrideState: 1
+    m_Value: 0
+  m_ObsoleteShapeOffsetX:
+    m_OverrideState: 1
+    m_Value: 0
+  m_ObsoleteShapeOffsetY:
+    m_OverrideState: 1
+    m_Value: 0
+  m_ObsoleteShapeOffsetZ:
+    m_OverrideState: 1
+    m_Value: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -766,23 +788,4 @@ MonoBehaviour:
     m_Value: 1
   shadowOpacityFallback:
     m_OverrideState: 0
-    m_Value: 0
-  m_Version: 3
-  localClouds:
-    m_OverrideState: 1
-    m_Value: 0
-  m_ObsoleteWindSpeed:
-    m_OverrideState: 1
-    m_Value: 1
-  m_ObsoleteOrientation:
-    m_OverrideState: 1
-    m_Value: 0
-  m_ObsoleteShapeOffsetX:
-    m_OverrideState: 1
-    m_Value: 0
-  m_ObsoleteShapeOffsetY:
-    m_OverrideState: 1
-    m_Value: 0
-  m_ObsoleteShapeOffsetZ:
-    m_OverrideState: 1
     m_Value: 0

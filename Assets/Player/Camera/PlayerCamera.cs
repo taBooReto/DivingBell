@@ -5,14 +5,17 @@ using UnityEngine.InputSystem;
 public class PlayerCamera : MonoBehaviour
 {
     [Header("Look Settings")]
-    [SerializeField] private InputAction _lookAction;
     [SerializeField] private CinemachineCamera _virtualCamera;
     [SerializeField] private float _mouseSensitivity = 7;
 
+
+    public Transform CameraTransform => _virtualCamera.transform;
     public Vector3 Position => _virtualCamera.transform.position;
     public Quaternion Rotation => _virtualCamera.transform.rotation;
 
     public bool IsRotationLocked { get; private set; } = false;
+    public bool StabilizeRotation { get; private set; }
+
     private Vector2 _rotation;
 
     private void Start()
@@ -21,31 +24,41 @@ public class PlayerCamera : MonoBehaviour
         SyncRotation();
     }
 
-    private void OnEnable()
+    public void Look(InputAction lookAction)
     {
-        _lookAction.Enable();
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        if (!IsRotationLocked)
+        {
+            Vector2 mouseDelta = lookAction.ReadValue<Vector2>()
+                * _mouseSensitivity * Time.deltaTime;
 
-    private void OnDisable()
-    {
-        _lookAction.Disable();
-        //Cursor.lockState = CursorLockMode.None;
-    }
-
-    private void Update()
-    {
-        if (IsRotationLocked) return;
-
-        Vector2 mouseDelta = _lookAction.ReadValue<Vector2>() * _mouseSensitivity * Time.deltaTime;
-
-        _rotation.x += mouseDelta.x;
-        _rotation.y += mouseDelta.y;
-        _rotation.y = Mathf.Clamp(_rotation.y, -90f, 90f);
-
-        _virtualCamera.transform.localRotation = Quaternion.Euler(-_rotation.y, 0f, 0f);
+            _rotation.x += mouseDelta.x;
+            _rotation.y += mouseDelta.y;
+            _rotation.y = Mathf.Clamp(_rotation.y, -90f, 90f);
+        }
 
         transform.localRotation = Quaternion.Euler(0f, _rotation.x, 0f);
+
+        if (StabilizeRotation)
+        {
+            float yaw = transform.eulerAngles.y;
+
+            _virtualCamera.transform.rotation = Quaternion.Euler(
+                -_rotation.y,
+                yaw,
+                0f
+            );
+        }
+        else
+        {
+            _virtualCamera.transform.localRotation =
+                Quaternion.Euler(-_rotation.y, 0f, 0f);
+        }
+    }
+
+    public void SetStabilizeRotation(bool enabled)
+    {
+        StabilizeRotation = enabled;
+        SyncRotation();
     }
 
     public void SetRotationLocked(bool locked)
@@ -57,7 +70,14 @@ public class PlayerCamera : MonoBehaviour
 
     public void SyncRotation()
     {
-        _rotation.x = transform.eulerAngles.y;
+        _rotation.x = transform.localEulerAngles.y;
+
+        float pitch = _virtualCamera.transform.eulerAngles.x;
+
+        if (pitch > 180f)
+            pitch -= 360f;
+
+        _rotation.y = Mathf.Clamp(-pitch, -90f, 90f);
     }
 
     public void SetRotation(Quaternion rotation)
