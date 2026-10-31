@@ -2,12 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerWalk : MonoBehaviour
 {
-    [SerializeField] private InputAction _moveAction;
     [SerializeField] private float _speed = 2;
-    private Rigidbody _rb;
 
     private bool _canWalk = true;
     private Vector2 _direction;
@@ -17,21 +14,7 @@ public class PlayerWalk : MonoBehaviour
 
     private bool _isWalking;
 
-    private void OnEnable()
-    {
-        _moveAction.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _moveAction.Disable();
-    }
-
-    private void Start()
-    {
-        _rb = GetComponent<Rigidbody>();
-    }
-    private void FixedUpdate()
+    public void Walk(InputAction moveAction, Rigidbody rb)
     {
         if (!_canWalk)
         {
@@ -39,7 +22,7 @@ public class PlayerWalk : MonoBehaviour
             return;
         }
 
-        _direction = _moveAction.ReadValue<Vector2>();
+        _direction = moveAction.ReadValue<Vector2>();
 
         if (_direction != Vector2.zero)
         {
@@ -47,7 +30,7 @@ public class PlayerWalk : MonoBehaviour
 
             Vector3 step = transform.forward * _direction.y + transform.right * _direction.x;
             step *= _speed * Time.fixedDeltaTime;
-            _rb.MovePosition(_rb.position + step);
+            rb.MovePosition(rb.position + step);
         }
         else
         {
