@@ -1,124 +1,76 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
 public class UnderwaterDepthFog : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Volume _globalVolume;
+    [SerializeField] private WaterSurface _water;
     [SerializeField] private Transform _target;
 
     [Header("Depth")]
     [SerializeField] private float _surfaceY = 0f;
     [SerializeField] private float _maxDepth = 500f;
 
-    [Header("Fog")]
-    [SerializeField] private float _surfaceMeanFreePath = 500f;
-    [SerializeField] private float _deepMeanFreePath = 5f;
+    [Header("Maximum Distance")]
+    [SerializeField] private float _surfaceMaxDistance = 100f;
+    [SerializeField] private float _deepMaxDistance = 3.5f;
 
-    [Header("Exposure")]
-    [SerializeField] private float _surfaceExposure = 0f;
-    [SerializeField] private float _deepExposure = 8f;
+    [Header("Absorption Distance")]
+    [SerializeField] private float _surfaceAbsorptionDistance = 100f;
+    [SerializeField] private float _deepAbsorptionDistance = 5f;
 
-    [Header("Indoor values")]
-    [SerializeField] private float _indoorMeanFreePath = 1000f;
-    [SerializeField] private float _indoorExposure = 0f;
+    [Header("Scattering Color")]
+    [SerializeField] private Color _surfaceScatteringColor = Color.cyan;
+    [SerializeField] private Color _deepScatteringColor = Color.blue;
 
-    [Header("Transition")]
-    [SerializeField] private float _transitionSpeed = 3f;
-
-    private Fog _fog;
-    private Exposure _exposure;
-
-    private bool _effectEnabled = false;
-
-    private float _currentMeanFreePath;
-    private float _currentExposure;
-
-    private void Awake()
-    {
-        if (_globalVolume == null || _target == null)
-        {
-            Debug.LogError("Global Volume or Target is not assigned.", this);
-            enabled = false;
-            return;
-        }
-
-        if (!_globalVolume.profile.TryGet(out _fog))
-        {
-            Debug.LogError("Fog override was not found.", this);
-            enabled = false;
-            return;
-        }
-
-        if (!_globalVolume.profile.TryGet(out _exposure))
-        {
-            Debug.LogError("Exposure override was not found.", this);
-            enabled = false;
-            return;
-        }
-
-        _currentMeanFreePath = _fog.meanFreePath.value;
-        _currentExposure = _exposure.fixedExposure.value;
-    }
+    private bool _effectEnabled = true;
 
     private void Update()
     {
-        float targetMeanFreePath;
-        float targetExposure;
+        if (!_effectEnabled)
+            return;
 
-        if (_effectEnabled)
-        {
-            float depth = Mathf.Max(0f, _surfaceY - _target.position.y);
-            float t = Mathf.Clamp01(depth / _maxDepth);
-            t = Mathf.SmoothStep(0f, 1f, t);
+        float depth = Mathf.Max(0f, _surfaceY - _target.position.y);
+        float t = Mathf.Clamp01(depth / _maxDepth);
 
-            targetMeanFreePath = Mathf.Lerp(
-                _surfaceMeanFreePath,
-                _deepMeanFreePath,
-                t
-            );
-
-            targetExposure = Mathf.Lerp(
-                _surfaceExposure,
-                _deepExposure,
-                t
-            );
-        }
-        else
-        {
-            targetMeanFreePath = _indoorMeanFreePath;
-            targetExposure = _indoorExposure;
-        }
-
-        _currentMeanFreePath = Mathf.Lerp(
-            _currentMeanFreePath,
-            targetMeanFreePath,
-            Time.deltaTime * _transitionSpeed
+        _water.maxRefractionDistance = Mathf.Lerp(
+            _surfaceMaxDistance,
+            _deepMaxDistance,
+            t
         );
 
-        _currentExposure = Mathf.Lerp(
-            _currentExposure,
-            targetExposure,
-            Time.deltaTime * _transitionSpeed
+        _water.absorptionDistance = Mathf.Lerp(
+            _surfaceAbsorptionDistance,
+            _deepAbsorptionDistance,
+            t
         );
 
-        _fog.meanFreePath.Override(_currentMeanFreePath);
-        _exposure.fixedExposure.Override(_currentExposure);
+        _water.scatteringColor = Color.Lerp(
+            _surfaceScatteringColor,
+            _deepScatteringColor,
+            t
+        );
     }
 
     public void EnableDepthEffect()
     {
-        _effectEnabled = true;
+        SetDepthEffectEnabled(true);
     }
 
     public void DisableDepthEffect()
     {
-        _effectEnabled = false;
+        SetDepthEffectEnabled(false);
     }
 
     public void SetDepthEffectEnabled(bool enabled)
     {
         _effectEnabled = enabled;
+
+        if (!enabled)
+        {
+            _water.maxRefractionDistance = _surfaceMaxDistance;
+            _water.absorptionDistance = _surfaceAbsorptionDistance;
+            _water.scatteringColor = _surfaceScatteringColor;
+        }
     }
 }

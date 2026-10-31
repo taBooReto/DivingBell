@@ -21,7 +21,7 @@ public class Float : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _waterSystems = Object.FindFirstObjectByType<WaterSystems>();
+        _waterSystems = FindAnyObjectByType<WaterSystems>();
 
         _rb.centerOfMass = new Vector3(0f, _centerOfMassOffset, 0f);
 

@@ -4,7 +4,7 @@ using UnityEngine.Rendering.HighDefinition;
 
 public class WaterSystems : MonoBehaviour
 {
-    public WaterSurface water;
+    [SerializeField] WaterSurface _waterSurface;
 
     WaterSearchParameters searchParameters = new WaterSearchParameters();
     WaterSearchResult searchResult = new WaterSearchResult();
@@ -17,7 +17,12 @@ public class WaterSystems : MonoBehaviour
         searchParameters.error = 0.01f;
         searchParameters.maxIterations = 8;
 
-        water.ProjectPointOnWaterSurface(searchParameters, out searchResult);
+        _waterSurface.ProjectPointOnWaterSurface(searchParameters, out searchResult);
         return searchResult.projectedPositionWS.y;
+    }
+
+    public void SetUnderwater(bool enabled)
+    {
+        _waterSurface.underWater = enabled;
     }
 }
