@@ -10,7 +10,6 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
     public LayerMask spawnedObjectLayer;
     public int numberoftrees = 10;
     public float spawnRadius = 50f;
-    public int delay = 1;
 
     // Start is called before the first frame update
     void Update()
@@ -51,6 +50,7 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
     void Pick(Vector3 positionToSpawn, Quaternion rotationToSpawn)
     {
         int randomIndex = Random.Range(0, itemsToPickFrom.Length);
+        rotationToSpawn = Quaternion.Euler(0, Random.Range(360, 0), 0);
         GameObject clone = Instantiate(itemsToPickFrom[randomIndex], positionToSpawn, rotationToSpawn);
     }
     // void SpawnTrees()

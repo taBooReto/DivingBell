@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 264828271}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
+  m_Entries: []
 --- !u!4 &91718062
 Transform:
   m_ObjectHideFlags: 19
@@ -937,7 +938,7 @@ Transform:
   m_GameObject: {fileID: 197332564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12, y: -44.22, z: -25.81}
+  m_LocalPosition: {x: 2.12, y: 1.5, z: -25.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2593,7 +2594,7 @@ Transform:
   m_GameObject: {fileID: 1625676245}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12, y: -45.07, z: -25.81}
+  m_LocalPosition: {x: 2.12, y: 0.65, z: -25.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3071,7 +3072,7 @@ Transform:
   m_GameObject: {fileID: 1872146091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -89.7, z: 0}
+  m_LocalPosition: {x: 0, y: -100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3204,16 +3205,76 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: delay
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: spawnRadius
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: numberoftrees
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: raycastDistance
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: spawnedObjectLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: itemsToPickFrom.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[0]'
+      value: 
+      objectReference: {fileID: 100008, guid: 54a9cf01843431742a3126013891032d, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[1]'
+      value: 
+      objectReference: {fileID: 100008, guid: 272f6ea372a7343499b5aa612014761f, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[2]'
+      value: 
+      objectReference: {fileID: 100008, guid: f20a15ee7150fd647af421022dde4d44, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[3]'
+      value: 
+      objectReference: {fileID: 100008, guid: 6b9fd6eae9eb0d546ae14cdaee6d1156, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[4]'
+      value: 
+      objectReference: {fileID: 100008, guid: f696a81957e80df439600b80ea8667ec, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[5]'
+      value: 
+      objectReference: {fileID: 100000, guid: d209be13548e70947bc39053977ce977, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[6]'
+      value: 
+      objectReference: {fileID: 100000, guid: 0f1e1518a80e562458930d8b2d0670d9, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[7]'
+      value: 
+      objectReference: {fileID: 100000, guid: 1679506d96acb1447aa6870479416bf8, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[8]'
+      value: 
+      objectReference: {fileID: 100000, guid: 5d4cffe5f1249a046b3bc42bbd99dc47, type: 3}
+    - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
+      propertyPath: 'itemsToPickFrom.Array.data[9]'
+      value: 
+      objectReference: {fileID: 100000, guid: d2db22038a6f9804598cd46453cc7cb8, type: 3}
     - target: {fileID: 2171264000780128308, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2171264000780128308, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 100
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2171264000780128308, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3249,7 +3310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8018276234815438309, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: m_Name
-      value: HotPointsSpawner
+      value: Rock spawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
