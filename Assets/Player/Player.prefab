@@ -457,8 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8e378ec93e2334bbd51635bb620ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSwim
-  speed: 10
-  acceleration: 8
+  speed: 7
+  acceleration: 5
   waterDrag: 1.3
 --- !u!114 &-8067717860532320447
 MonoBehaviour:
