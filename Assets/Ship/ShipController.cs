@@ -8,8 +8,10 @@ public class ShipController : MonoBehaviour
     [SerializeField] private WaterSystems _waterSystems;
 
     [Header("Movement")]
+    [SerializeField] private bool _allowMovement = true;
     [SerializeField] private float _forwardSpeed = 100f;
     [SerializeField] private float _backwardSpeed = 50f;
+    public bool AllowMovement => _allowMovement;
 
     [Header("Steering")]
     [SerializeField] private float _turnSpeed = 30f;
@@ -18,7 +20,7 @@ public class ShipController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_input == Vector2.zero)
+        if (_input == Vector2.zero || !_allowMovement)
             return;
 
         float waterLevel = _waterSystems.GetWaterLevel(_enginePoint.position);
@@ -52,5 +54,10 @@ public class ShipController : MonoBehaviour
     public void SetEnginePower(float value)
     {
         _input.y = Mathf.Clamp(value, -1f, 1f);
+    }
+
+    public void SetAllowMovement(bool allow)
+    {
+        _allowMovement = allow;
     }
 }

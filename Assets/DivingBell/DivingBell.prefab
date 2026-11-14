@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5636049121960054986}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerAnchor
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4088235663109791956}
   - component: {fileID: 5878788508966929676}
   - component: {fileID: 2505608920447737288}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 496462555659422981}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 5444911263437301492}
   - component: {fileID: 1774033798039895737}
   - component: {fileID: 4990521755467118786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,6 +396,54 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+--- !u!1 &1621048532085300973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1001520956209864337}
+  - component: {fileID: 3681258750326718061}
+  m_Layer: 3
+  m_Name: Water Excluder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1001520956209864337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621048532085300973}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.748, z: 0}
+  m_LocalScale: {x: 0.999, y: 0.999, z: 0.999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6285001017166161276}
+  m_Father: {fileID: 741093087893431470}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3681258750326718061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621048532085300973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c5a042497356f40a2ed2f05160d816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.WaterExcluder
+  m_InternalMesh: {fileID: -4393408803204964957, guid: c99faa61c7c43f24c940943546254e77, type: 3}
+  m_ExclusionRenderer: {fileID: 8551982763497270353}
+  version: 1
 --- !u!1 &2145531493725179515
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8902625195798112272}
   - component: {fileID: 2718228778969743542}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +654,7 @@ GameObject:
   - component: {fileID: 2267139031820003578}
   - component: {fileID: 3932689044026878942}
   - component: {fileID: 5001135208666952599}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +744,7 @@ GameObject:
   - component: {fileID: 2577625243143818686}
   - component: {fileID: 450112065545086275}
   - component: {fileID: 6926652424078008105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +987,7 @@ GameObject:
   - component: {fileID: 8202148536046712791}
   - component: {fileID: 8522006685599286901}
   - component: {fileID: 7007083773291857340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DivingBell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,6 +1007,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1001520956209864337}
   - {fileID: 496462555659422981}
   - {fileID: 8902625195798112272}
   - {fileID: 2577625243143818686}
@@ -1012,7 +1061,7 @@ ConfigurableJoint:
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_SecondaryAxis: {x: 0, y: 1, z: 0}
+  m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 1
   m_YMotion: 1
   m_ZMotion: 1
@@ -1023,7 +1072,7 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LinearLimit:
-    limit: 1
+    limit: 0.2
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
@@ -1143,8 +1192,8 @@ MonoBehaviour:
     previousLengths: []
     initialTilings: []
   - points:
-    - {fileID: 8733659540179815955}
     - {fileID: 0}
+    - {fileID: 8733659540179815955}
     segments: []
     materials: []
     previousLengths: []
@@ -1210,7 +1259,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SetStabilizeCameraRotation
+        m_MethodName: SetMoveability
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1218,7 +1267,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   _onPlayerExitedBell:
     m_PersistentCalls:
@@ -1261,7 +1310,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SetStabilizeCameraRotation
+        m_MethodName: SetMoveability
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1269,7 +1318,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   _onMovementStarted:
     m_PersistentCalls:
@@ -1327,7 +1376,7 @@ GameObject:
   - component: {fileID: 3639894857247738229}
   - component: {fileID: 516329820191660536}
   - component: {fileID: 8165774005689686287}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Reflection Probe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1343,7 +1392,7 @@ Transform:
   m_GameObject: {fileID: 3821333193426617330}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1699829, z: 0}
+  m_LocalPosition: {x: 7.579123e-14, y: 1.1699828, z: 0.00000063578295}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1802,7 +1851,7 @@ GameObject:
   - component: {fileID: 4945256457961207526}
   - component: {fileID: 1615434838771151482}
   - component: {fileID: 502092903850917931}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2044,7 +2093,7 @@ GameObject:
   - component: {fileID: 4912144990184534675}
   - component: {fileID: 4003372964692131479}
   - component: {fileID: 4096611503868860055}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2185,6 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonAnimator
   _button: {fileID: 3713885490026051077}
+  _animationMode: 0
   _pressOffset: {x: 0.0036, y: 0, z: 0}
   _animationDuration: 0.15
 --- !u!1 &5303076243621143647
@@ -2198,7 +2248,7 @@ GameObject:
   - component: {fileID: 6404111121475797688}
   - component: {fileID: 356765699636342228}
   - component: {fileID: 1821019410913429711}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2286,7 +2336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8733659540179815955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RopeAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2317,7 +2367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2396655493797754651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ExitAnchor
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -2353,7 +2403,7 @@ GameObject:
   - component: {fileID: 8099217230257815351}
   - component: {fileID: 5186838488479532689}
   - component: {fileID: 872312316931346717}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ButtonDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2509,8 +2559,99 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonAnimator
   _button: {fileID: 4203182051830266157}
+  _animationMode: 0
   _pressOffset: {x: 0, y: 0, z: 0.0093}
   _animationDuration: 0.15
+--- !u!1 &8551982763497270353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6285001017166161276}
+  - component: {fileID: 3638225690398643911}
+  - component: {fileID: 5852938119535938795}
+  m_Layer: 3
+  m_Name: Water Excluder Renderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6285001017166161276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551982763497270353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1001520956209864337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3638225690398643911
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551982763497270353}
+  m_Mesh: {fileID: -4393408803204964957, guid: c99faa61c7c43f24c940943546254e77, type: 3}
+--- !u!23 &5852938119535938795
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551982763497270353}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1e520c84f7fd17c46af5586f6632155c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8666860980813794829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2663,7 @@ GameObject:
   - component: {fileID: 8894238725724166268}
   - component: {fileID: 2109749307899763090}
   - component: {fileID: 4677727037262803885}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2764,7 +2905,7 @@ GameObject:
   - component: {fileID: 305874594341054240}
   - component: {fileID: 6999333267599547696}
   - component: {fileID: 2768936032054633900}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottonUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2920,5 +3061,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonAnimator
   _button: {fileID: 3687106697128448413}
+  _animationMode: 0
   _pressOffset: {x: 0, y: 0, z: 0.0093}
   _animationDuration: 0.15
