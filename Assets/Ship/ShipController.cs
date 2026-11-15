@@ -60,4 +60,5 @@ public class ShipController : MonoBehaviour
     {
         _allowMovement = allow;
     }
+
 }
