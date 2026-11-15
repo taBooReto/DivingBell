@@ -11,8 +11,15 @@ public class PlayerController : MonoBehaviour
     [Header("Player Inputs")]
     [SerializeField] private InputAction _lookAction;
     [SerializeField] private InputAction _interactAction;
+    [SerializeField] private InputAction _cancelAction;
     [SerializeField] private InputAction _moveInput;
     [SerializeField] private InputAction _swimVerticalAction;
+    public InputAction LookAction => _lookAction;
+    public InputAction InteractAction => _interactAction;
+    public InputAction CancelAction => _cancelAction;
+    public InputAction MoveInput => _moveInput;
+    public InputAction SwimVerticalAction => _swimVerticalAction;
+
 
     [Header("Player Components")]
     private PlayerCamera _playerCamera;
@@ -32,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private bool _canWalk = true;
     private bool _canSwim = true;
+    private bool _canMove = true;
 
     private void Awake()
     {
@@ -55,6 +63,7 @@ public class PlayerController : MonoBehaviour
         _lookAction.Enable();
         _interactAction.Enable();
         _moveInput.Enable();
+        _cancelAction.Enable();
         _swimVerticalAction.Enable();
 
         _interactAction.performed += OnInteract;
@@ -66,6 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         _lookAction.Disable();
         _interactAction.Disable();
+        _cancelAction.Disable();
         _moveInput.Disable();
         _swimVerticalAction.Disable();
 
@@ -100,36 +110,48 @@ public class PlayerController : MonoBehaviour
     {
        SetWalkAbility(!isDived);
         _rb.useGravity = !isDived;
+        Debug.Log($"Dive state changed: {isDived}. Walk ability set to {!isDived}. Gravity set to {!isDived}.");
     }
 
     public void SetCameraRotationLocked(bool locked)
     {
         _playerCamera.SetRotationLocked(locked);
+        Debug.Log($"Camera rotation locked: {locked}");
     }
 
     public void SetWalkAbility(bool canWalk)
     {
+        if (!_canMove) return;
+
         _canWalk = canWalk;
         _playerWalk.SetWalkAbility(canWalk);
+        Debug.Log($"Walk ability set to: {canWalk}");
     }
 
     public void SetSwimAbility(bool canSwim)
     {
+        if (_canMove) return;
+
         _canSwim = canSwim;
         _playerSwim.SetSwimAbility(canSwim);
+        Debug.Log($"Swim ability set to: {canSwim}");
     }
 
     public void SetMoveability(bool canMove)
     {
-        if(_canWalk) _playerWalk.SetWalkAbility(canMove);
+        _canMove = canMove;
+
+        if (_canWalk) _playerWalk.SetWalkAbility(canMove);
 
         if (_canSwim) _playerSwim.SetSwimAbility(canMove);
 
         _rb.isKinematic = !canMove;
+        Debug.Log($"Moveability set to: {canMove}. Walk ability: {_canWalk}, Swim ability: {_canSwim}, Rigidbody isKinematic: {!canMove}");
     }
 
     public void SetStabilizeCameraRotation(bool enabled)
     {
         _playerCamera.SetStabilizeRotation(enabled);
+        Debug.Log($"Stabilize camera rotation set to: {enabled}");
     }
 }

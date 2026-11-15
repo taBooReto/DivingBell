@@ -18,6 +18,19 @@ public class VirtualShip : MonoBehaviour
         _rb.interpolation = RigidbodyInterpolation.Interpolate;
 
         _lastShipRotation = _realShipRb.rotation;
+
+        Physics.IgnoreLayerCollision(
+        LayerMask.NameToLayer("Shyp"),
+        LayerMask.NameToLayer("Ignore Raycast"),
+        true
+        );
+
+        Debug.Log(
+         Physics.GetIgnoreLayerCollision(
+        LayerMask.NameToLayer("Shyp"),
+        LayerMask.NameToLayer("Ignore Raycast")
+        )
+        );
     }
 
     private void FixedUpdate()
