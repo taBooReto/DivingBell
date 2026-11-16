@@ -1572,6 +1572,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 16.44
       objectReference: {fileID: 0}
+    - target: {fileID: 5900942097557272179, guid: 7dc2581dd354b7e41be90e703712d60e, type: 3}
+      propertyPath: orthographic size
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6697557136341542106, guid: 7dc2581dd354b7e41be90e703712d60e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.74
@@ -1698,6 +1702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7439445504143958614, guid: 7dc2581dd354b7e41be90e703712d60e, type: 3}
+    - {fileID: 1535153564024222486, guid: 7dc2581dd354b7e41be90e703712d60e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1200013938260620111, guid: 7dc2581dd354b7e41be90e703712d60e, type: 3}
     - {fileID: -1599826595754709761, guid: 7dc2581dd354b7e41be90e703712d60e, type: 3}
@@ -3937,7 +3942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: numberoftrees
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: raycastDistance
@@ -3945,7 +3950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: overlapTestBoxSize
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 186108104305257399, guid: 3ca4313ae234ea94885dd09128a9d780, type: 3}
       propertyPath: spawnedObjectLayer.m_Bits
